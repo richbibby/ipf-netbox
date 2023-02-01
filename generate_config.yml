@@ -1,0 +1,9 @@
+---
+- name: Generate Device Configuration
+  connection: local
+  hosts: L21C163
+  gather_facts: False
+
+  roles:
+    - role: generate_config
+      tags: generate_config 
