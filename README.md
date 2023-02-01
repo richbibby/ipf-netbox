@@ -31,7 +31,7 @@ ansible-inventory --list -i netbox_inv.yml
 ansible-playbook generate_config.yml
 ```
 
-7. Deactivate virtualenv
+7. Deactivate virtual environment
 ```
 deactivate
 ```
