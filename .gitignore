@@ -1,6 +1,2 @@
-bin
-lib
-include
-pyvenv.cfg
 venv/
 conf/
