@@ -1,14 +1,16 @@
 # ipf-netbox
 Code for IP Fabric and NetBox talk at Cisco Live Amsterdam 2023
 
+Tested on Python Version: `3.10.6'
+
 1. Clone Git repo and change into ipf-netbox directory
 ```
 git clone https://github.com/richbibby/ipf-netbox.git
 cd ipf-netbox
 ```
-2. Create and activate Python 3.10 virtual environment
+2. Create and activate Python 3 virtual environment
 ```
-python3.10 -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 3. Set environment variables for NetBox API token and URL
