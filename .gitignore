@@ -4,3 +4,4 @@ include
 pyvenv.cfg
 310/
 311/
+venv/
