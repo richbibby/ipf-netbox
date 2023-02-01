@@ -32,50 +32,10 @@ system {
       {% endfor %}
     }  
 }
-vlans {
-    {% for vlan in vlans.json.results %}
-    {{ vlan.name }} { 
-        vlan-id {{ vlan.vid }};
-        l3-interface vlan.{{ vlan.vid }};
-  }
-    {% endfor %}
-}
 interfaces {
-    ge-0/0/0 {
-          unit 0 {
-              family inet {
-                  address {{ device.json.results[0]['primary_ip']['address'] }};
-              }
-          }
-    }
-{% for intf in interfaces.json.results %}
-{% if intf.untagged_vlan %}
-    {{ intf.name }} {
-        unit 0 {
-            family ethernet-switching {
-                port-mode access;
-                vlan {
-                    members {{ intf.untagged_vlan.name }};
-                }
-            }
-        } 
-    }
-{% elif intf.mode %}
-    {{ intf.name }} {
-        unit 0 {
-            family ethernet-switching {
-                port-mode trunk;
-                vlan {
-                    members all;
-                }
-            }
-        } 
-    }
-{% endif %}
-{% endfor %} 
 {%- for intf in interfaces.json.results %}    
   {%- for ip in ip_addresses.json.results %}
-    {%- if ip.assigned_object.name == intf.name and 'me' in intf.name %}
+    {%- if ip.assigned_object.name == intf.name %}
     {{ intf.name }} {
         unit 0 {
             family inet {
@@ -86,25 +46,8 @@ interfaces {
       {%- endif %}
     {%- endfor %} 
 {%- endfor %}
-
-{%- for intf in interfaces.json.results %}
-{% if 'vlan' in intf.name %} 
-    vlan {
-    {% for ip in ip_addresses.json.results %}
-      {%- if ip.assigned_object.name == intf.name %}
-        unit {{ intf.name.split('.')[1] }}  {
-            family inet {
-                address {{ ip.address }};
-            }
-        }
-    }
-      {%- endif %}
-    {% endfor %}
-{% endif %}
-{%- endfor %}  
 }
 snmp { 
-    location {{ site.json.results[0]['region']['name'] }} [{{ site.json.results[0]['latitude'] }},{{ site.json.results[0]['longitude'] }}]; 
     community {{ device.json.results[0].config_context['snmp-ro-community']}} { 
         authorization read-only; 
         }

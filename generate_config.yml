@@ -1,7 +1,7 @@
 ---
 - name: Generate Device Configuration
   connection: local
-  hosts: L21C163
+  hosts: L21C163, L67P10
   gather_facts: False
 
   roles:
