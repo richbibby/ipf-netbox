@@ -1,7 +1,7 @@
 # ipf-netbox
 Code for IP Fabric and NetBox talk at Cisco Live Amsterdam 2023
 
-1. Clone Git repo
+1. Clone Git repo and change into ipf-netbox directory
 ```
 git clone https://github.com/richbibby/ipf-netbox.git
 cd ipf-netbox
@@ -18,7 +18,7 @@ export NETBOX_API=<https://url>
 ```
 4. Install required Python packages
 ```
-pip install -r requirments.txt
+pip install -r requirements.txt
 ```
 5. Check Ansible dynamic inventory is working
 ```
