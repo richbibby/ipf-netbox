@@ -1,7 +1,7 @@
 # ipf-netbox
 Code for IP Fabric and NetBox talk at Cisco Live Amsterdam 2023
 
-Tested on Python Version: `3.10.6'
+Tested on Python Version: `3.10.6`
 
 1. Clone Git repo and change into ipf-netbox directory
 ```
