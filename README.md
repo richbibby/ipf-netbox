@@ -3,7 +3,7 @@ Code for IP Fabric and NetBox talk at Cisco Live Amsterdam 2023
 
 1. Clone Git repo
 ```
-clone https://github.com/richbibby/ipf-netbox.git
+git clone https://github.com/richbibby/ipf-netbox.git
 cd ipf-netbox
 ```
 2. Create and activate Python 3.10 virtual environment
