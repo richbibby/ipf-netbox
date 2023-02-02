@@ -3,7 +3,7 @@ Code for IP Fabric and NetBox talk at Cisco Live Amsterdam 2023.
 
 The talk demo's the IP Fabric-NetBox plugin to import device data into NetBox, using the NetBox staging functionality. Once the device data has been imported then the code in this repo demonstrates the following: 
 
-- NetBox as a dyanmic inventory source for Ansible
+- NetBox as a dynamic inventory source for Ansible
 - Ansible playbook to extract device data from NetBox and render Cisco and Juniper configuration files using Jinja templates
 
 Tested on Python Version: `3.10.6`
