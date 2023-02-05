@@ -8,7 +8,7 @@ The talk demo's the IP Fabric-NetBox plugin to import device data into NetBox, u
 
 Tested on Python Version: `3.10.6`
 
-## Instructions For Use
+## Getting Started
 
 1. Clone Git repo and change into ipf-netbox directory
 ```

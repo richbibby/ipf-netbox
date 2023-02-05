@@ -32,23 +32,26 @@ system {
       {% endfor %}
     }  
 }
-interfaces {
-{%- for intf in interfaces.json.results %}    
-  {%- for ip in ip_addresses.json.results %}
-    {%- if ip.assigned_object.name == intf.name %}
-    {{ intf.name }} {
-        unit 0 {
-            family inet {
-                address {{ ip.address }};
-            }
-        }
-    }
-      {%- endif %}
-    {%- endfor %} 
-{%- endfor %}
-}
 snmp { 
     community {{ device.json.results[0].config_context['snmp-ro-community']}} { 
         authorization read-only; 
         }
+}
+interfaces{
+{%- for intf in interfaces.json.results %}
+  {%- for ip in ip_addresses.json.results %}
+    {%- if ip.assigned_object.name == intf.name %} 
+    {{ intf.name.split('.')[0] }} {
+      unit 0 {
+      {% if intf.description %}
+        description "{{ intf.description }}";
+      {% endif %}
+        family inet {
+          address {{ ip.address }};
+          }
+        }
+      }
+    {%- endif %}
+  {%- endfor %} 
+{%- endfor %} 
 }
